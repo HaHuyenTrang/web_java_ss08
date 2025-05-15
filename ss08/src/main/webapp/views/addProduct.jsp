@@ -9,12 +9,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+  <meta charset="UTF-8" />
   <title>Thêm sản phẩm</title>
 </head>
 <body>
 <h2>Thêm sản phẩm mới</h2>
 
-<form:form  method="POST" action="/products/add" modelAttribute="product">
+<form:form  accept-charset="UTF-8"  method="POST" action="${pageContext.request.contextPath}/products/add" modelAttribute="product">
   Tên sản phẩm: <form:input path="name" /><br><br>
   Số lượng: <form:input path="quantity" /><br><br>
   Giá: <form:input path="price" /><br><br>

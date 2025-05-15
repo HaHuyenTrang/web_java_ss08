@@ -5,15 +5,24 @@ import ra.ss08.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
-
 @Repository
 public class ProductRepository {
 
+    private List<Product> products = new ArrayList<>();
+    private int currentId = 1;
+
+    public ProductRepository() {
+        products.add(new Product(currentId++, "ip 14 pl", 10, 20000));
+        products.add(new Product(currentId++, "macbook", 5, 150000));
+        products.add(new Product(currentId++, "lap HP", 7, 30000));
+    }
+
     public List<Product> findAll() {
-        List<Product> list = new ArrayList<>();
-        list.add(new Product(1, "ip 14 pl",2,12345));
-        list.add(new Product(2, "macboook",2,234567));
-        list.add(new Product(3, "lap HP",3,23456));
-        return list;
+        return products;
+    }
+
+    public void add(Product product) {
+        product.setId(currentId++);
+        products.add(product);
     }
 }
